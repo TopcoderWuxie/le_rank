@@ -1,0 +1,13 @@
+Linux 服务器部署
+
+# 爬取定时器
+30 7 * * * /bin/sh  /opt/vdb/xiushu/allShell/le_rank.sh
+
+
+# 执行的shell脚本
+# le_rank.sh（脚本名称）
+
+#!/bin/bash
+export PATH=$PATH:/usr/bin
+cd /opt/vdb/xiushu/leshiRank/leshiRank/spiders
+scrapy runspider /opt/vdb/xiushu/leshiRank/leshiRank/spiders/leRank.py >> /opt/vdb/logs/xiushu/leshiRank/le_rank.log 2>&1
